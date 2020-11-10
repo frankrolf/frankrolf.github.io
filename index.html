@@ -1,15 +1,11 @@
----
-title: Source Serif 4
----
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="format-detection" content="telephone=no">
-		<title>{{ page.title }}</title>
-		<link rel="stylesheet" type="text/css" href="/style.css">
+		<title>Source Serif 4</title>
+		<link rel="stylesheet" href="/style.css">
 		<link rel="stylesheet" href="/source-serif-var.css">
 		<link rel="stylesheet" href="/source-serif-caption.css">
 		<link rel="stylesheet" href="/source-serif-smtext.css">
@@ -18,47 +14,46 @@ title: Source Serif 4
 		<link rel="stylesheet" href="/source-serif-display.css">
 	</head>
 	<body>
-	<article spellcheck="false">
-
-	<h1>{{ page.title }}</h1>
-	<hr>
-
-	<div style="font-weight: 200;" class="container">
-		<h2>ExtraLight</h2>
-		{% include iberian_lynx.html %}
-	</div>
-
-	<div style="font-weight: 300;" class="container">
-		<h2>Light</h2>
-		{% include sand_cat.html %}
-	</div>
-
-	<div style="font-weight: 400;" class="container">
-		<h2>Regular</h2>
-		{% include capybara.html %}
-	</div>
-
-	<div style="font-weight: 600;" class="container">
-		<h2>Semibold</h2>
-		{% include wombat.html %}
-	</div>
-
-	<div style="font-weight: 700;" class="container">
-		<h2>Bold</h2>
-		{% include anteater.html %}
-	</div>
-
-	<div style="font-weight: 900;" class="container">
-		<h2>Black</h2>
-		{% include anteater_gr.html %}
-	</div>
-
-	<div style="font-weight: 200;" class="container">
-		<h2>ExtraLight</h2>
-		{% include raccoon.html %}
-	</div>
-
-
-	</article>
+		<header>
+			<h1>Source Serif 4</h1>
+			<hr>
+		</header>
+		
+		<main spellcheck="false">
+			<article class="ExtraLight">
+				<h2>ExtraLight</h2>
+				<!--#include virtual="/_includes/iberian_lynx.html" -->
+			</article>
+			
+			<article class="Light">
+				<h2>Light</h2>
+				<!--#include virtual="/_includes/sand_cat.html" -->
+			</article>
+			
+			<article class="Regular">
+				<h2>Regular</h2>
+				<!--#include virtual="/_includes/capybara.html" -->
+			</article>
+			
+			<article class="Semibold">
+				<h2>Semibold</h2>
+				<!--#include virtual="/_includes/wombat.html" -->
+			</article>
+			
+			<article class="Bold">
+				<h2>Bold</h2>
+				<!--#include virtual="/_includes/anteater.html" -->
+			</article>
+			
+			<article class="Black">
+				<h2>Black</h2>
+				<!--#include virtual="/_includes/anteater_gr.html" -->
+			</article>
+			
+			<article class="ExtraLight">
+				<h2>ExtraLight</h2>
+				<!--#include virtual="/_includes/raccoon.html" -->
+			</article>
+		</main>
 	</body>
 </html>
