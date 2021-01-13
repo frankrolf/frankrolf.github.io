@@ -20,6 +20,9 @@ a {
     text-decoration: none;
     color: #AAA;
 }
+[contenteditable] {
+  outline: 0px solid transparent;
+}
 h1 {
     font-family: "Source Serif VF", "Source Serif Display";
     font-size: 4rem;
