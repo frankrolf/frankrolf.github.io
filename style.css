@@ -4,10 +4,12 @@ body {
     font-size: 100%;
     font-feature-settings: "kern" 1, "liga" 1;
 }
+
 main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
 }
+
 article {
     autocorrect: "off";
     margin: 0 auto;
@@ -16,20 +18,26 @@ article {
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
 }
+
 a {
     text-decoration: none;
     color: #AAA;
 }
+
 [contenteditable] {
-  outline: 0px solid transparent;
+    outline: 0px solid transparent;
 }
+
 h1 {
+    /*page title*/
     font-family: "Source Serif VF", "Source Serif Display";
     font-size: 4rem;
     margin: 0;
     padding-left: 1.5rem;
 }
+
 h2 {
+    /*weight names in small caps*/
     font-family: "Source Serif VF", "Source Serif SmText";
     font-weight: 400;
     font-variation-settings: "opsz" 8;
@@ -43,7 +51,9 @@ h2 {
     letter-spacing: 0.05em;
     border-bottom: 1px solid;
 }
+
 h3 {
+    /*article headlines*/
     font-family: "Source Serif VF", "Source Serif Display";
     font-weight: inherit;
     font-size: 5rem;
@@ -55,6 +65,7 @@ h3 {
 }
 
 h4 {
+    /*article subheads in small caps*/
     font-family: "Source Serif VF", "Source Serif Subhead";
     font-weight: inherit;
     font-size: 2.5rem;
@@ -66,16 +77,16 @@ h4 {
     margin: 0em;
 }
 
-.columns {
-    columns: 18rem;
-    column-gap: 0.75rem;
-}
-
 p {
     margin: 0;
     /*padding-bottom: 0.5rem;*/
     font-feature-settings: "onum" 1, "pnum" 1;
 
+}
+
+.columns {
+    columns: 18rem;
+    column-gap: 0.75rem;
 }
 
 .opsz_text {
@@ -95,7 +106,6 @@ p {
     padding-bottom: 1rem;
     padding-left: 0.5rem;
 }
-
 
 .smcp {
     font-feature-settings: "smcp" 1;
