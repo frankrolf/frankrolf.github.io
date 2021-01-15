@@ -56,10 +56,10 @@ h3 {
     /*article headlines*/
     font-family: "Source Serif VF", "Source Serif Display";
     font-weight: inherit;
-    font-size: 5rem;
+    font-size: 4rem;
     font-variation-settings: "opsz" 60;
-    line-height: 5rem;
-    padding-top: 0.45rem;
+    line-height: 4rem;
+    padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     margin: 0;
 }
@@ -68,11 +68,11 @@ h4 {
     /*article subheads in small caps*/
     font-family: "Source Serif VF", "Source Serif Subhead";
     font-weight: inherit;
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     font-variation-settings: "opsz" 40;
-    line-height: 2.75rem;
+    line-height: 2rem;
     font-feature-settings: "smcp" 1, "c2sc" 1;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
     padding-left: 0.25rem;
     margin: 0em;
 }
@@ -94,15 +94,15 @@ p {
     font-variation-settings: "opsz" 10;
     line-height: 1.75rem;
     /*padding-left: .5rem;*/
-    padding-bottom: 1rem;
+    padding-bottom: 0.75rem;
     padding-left: 0.5rem;
 }
 
 .opsz_caption {
     font-family: "Source Serif VF", "Source Serif Caption";
-    font-size: .75rem;
+    font-size: .875rem;
     font-variation-settings: "opsz" 4;
-    line-height: 1.25rem;
+    line-height: 1.375rem;
     padding-bottom: 1rem;
     padding-left: 0.5rem;
 }
@@ -135,6 +135,12 @@ p {
     }
     article:hover {
         background-color: #EEE;
+    }
+}
+
+@media (max-width: 30rem) {
+    html {
+        font-size: 10px;
     }
 }
 
