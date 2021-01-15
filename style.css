@@ -112,20 +112,24 @@ p {
 }
 
 .spacer {
-    background-color: red;
     top: 0;
     left: 0;
     height: 3.5rem;
     width: 100%
 }
 .sticky {
-    background-color: #FFF;
     box-shadow: 0px .5px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%
 }
+
+.dynamic_color {
+    background-color: #FFF;
+    color: #000;
+}
+
 .smcp {
     font-feature-settings: "smcp" 1;
 }
@@ -138,7 +142,7 @@ p {
 .Black {font-weight: 900;}
 
 @media (prefers-color-scheme: dark) {
-    body {
+    .dynamic_color {
         background-color: #222;
         color: #FFF;
     }
@@ -148,10 +152,6 @@ p {
 }
 
 @media (prefers-color-scheme: light) {
-    body {
-        background-color: #FFF;
-        color: #000;
-    }
     article:hover {
         background-color: #EEE;
     }
