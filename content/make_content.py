@@ -6,17 +6,25 @@ languages = {
     'be': 'Belarusian',
     'bg': 'Bulgarian',
     'cz': 'Czech',
+    'de': 'German',
     'el': 'Greek',
     'en': 'English',
     'eo': 'Esperanto',
+    'es': 'Spanish',
+    'et': 'Estonian',
     'eu': 'Basque',
     'fi': 'Finnish',
+    'fr': 'French',
+    'hu': 'Hungarian',
     'kk': 'Kazakh',
     'lv': 'Latvian',
     'pl': 'Polish',
     'pt': 'Portuguese',
     'ru': 'Russian',
-    'sr': 'Seriban',
+    'se': 'Swedish',
+    'sk': 'Slovak',
+    'sr': 'Serbian',
+    'uk': 'Ukrainian',
     'vi': 'Vietnamese',
 }
 
@@ -30,11 +38,15 @@ html_template = '''
 
 <div class="columns opsz_caption">
 <p contenteditable">
-{content_small}
+{content_caption}
 </p>
 <p lang="en">
-This sample text was assembled from the <a href="{url_a}">{language_a}</a> and <a href="{url_b}">{language_b}</a> Wikipedia pages about the the {animal}.
-They were sampled in November 2020, and lightly edited for typography.
+This sample text was assembled from the
+<a href="{url_a}">{language_a}</a>
+and
+<a href="{url_b}">{language_b}</a>
+Wikipedia pages about the the {animal}.
+They were sampled in Winter 2020/21, and lightly edited for typography.
 </p>
 </div>
 '''
@@ -56,6 +68,9 @@ def text_to_html(animal, filenames):
             languages.get(lang_tag, 'no language'))
 
         header, subhead, content, url = data.split('\n\n')
+        # print(f'{lang_tag} content', len(content))
+        # for line in content.split('\n'):
+        #     print('\t' + str(len(line)))
         format_dict.setdefault('header', []).append(header)
         format_dict.setdefault('subhead', []).append(subhead)
         format_dict.setdefault('content', []).append(content)
@@ -77,8 +92,8 @@ def text_to_html(animal, filenames):
     content_b = format_dict['content'][choice_b].split('\n')
 
     if len(filenames) > 1:
-        content = ''
-        content_small = ''
+        content_body = ''
+        content_caption = ''
         content_list_a = []
         content_list_b = []
 
@@ -89,26 +104,39 @@ def text_to_html(animal, filenames):
             content_list_b.append(
                 f'<span lang="{lang_tag_b}">{content_b.pop(0)}</span>')
 
-        for p_index, pair in enumerate(
+        for s_index, sentences in enumerate(
             list(zip(content_list_a, content_list_b))
         ):
-            if p_index % 2 == 0:
-                content += pair[choice_a] + ' '
-                content_small += pair[choice_b] + ' '
+            # make body text in which lines alternate by language
+            sentence_a = sentences[choice_a]
+            sentence_b = sentences[choice_b]
+            if random.random() <= .3:
+                italic_toggle_start = '<i>'
+                italic_toggle_end = '</i>'
             else:
-                content += pair[choice_b] + ' '
-                content_small += pair[choice_a] + ' '
+                italic_toggle_start = ''
+                italic_toggle_end = ''
+
+            if s_index % 2 == 0:
+                content_body += '{}{}{}\n'.format(
+                    italic_toggle_start, sentence_a, italic_toggle_end)
+                content_caption += sentence_b + '\n'
+            else:
+                content_body += '{}{}{}\n'.format(
+                    italic_toggle_start, sentence_b, italic_toggle_end)
+                content_caption += sentence_a + '\n'
 
     else:
-        content = (
+        # only one language exists for this animal
+        content_body = (
             f'<span lang="{lang_tag_a}">' +
             '\n'.join(content_a) + '</span>')
-        content_small = (
+        content_caption = (
             f'<span lang="{lang_tag_a}">' +
             '\n'.join(content_a) + '</span>')
 
-    output_dict['content'] = content
-    output_dict['content_small'] = content_small
+    output_dict['content'] = content_body
+    output_dict['content_caption'] = content_caption
 
     output_path = os.path.join('..', '_includes', f'{animal}.html')
     html_data = html_template.format(**output_dict)
@@ -121,8 +149,8 @@ for file in os.listdir(os.path.abspath(os.path.dirname(__file__))):
     if os.path.splitext(file)[-1].lower() == '.txt':
         animal, _ = os.path.splitext(file)[0].split('-')
         animals.setdefault(animal, []).append(file)
-for animal, text_files in animals.items():
-    print(text_files)
-    text_to_html(animal, text_files)
 
-        # text_to_html(file)
+print('animals found:')
+for animal, text_files in sorted(animals.items()):
+    print('❤️ ' + animal.title())
+    text_to_html(animal, text_files)
