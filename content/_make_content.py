@@ -138,7 +138,8 @@ def text_to_html(animal, filenames):
     output_dict['content'] = content_body
     output_dict['content_caption'] = content_caption
 
-    output_path = os.path.join('..', '_includes', f'{animal}.html')
+    file_name = animal.replace(' ', '_') + '.html'
+    output_path = os.path.join('..', '_includes', file_name)
     html_data = html_template.format(**output_dict)
     with open(output_path, 'w') as htmlfile:
         htmlfile.write(html_data)
