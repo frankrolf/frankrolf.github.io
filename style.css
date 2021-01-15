@@ -140,6 +140,16 @@ p {
     font-feature-settings: "smcp" 1;
 }
 
+.links_right {
+  height: 3rem;
+  position: absolute;
+  right: 1.5rem;
+  top: .25rem;
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
+
 .ExtraLight {font-weight: 200;}
 .Light {font-weight: 300;}
 .Regular {font-weight: 500;}

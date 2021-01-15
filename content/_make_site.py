@@ -22,11 +22,19 @@ title: Source Serif 4
         <link rel="stylesheet" href="/source-serif-subhead.css">
         <link rel="stylesheet" href="/source-serif-display.css">
     </head>
-    <body class='dynamic_color'>
-        <header class='dynamic_color sticky'>
-            <h1>Source Serif 4</h1>
+    <body class="dynamic_color">
+        <header class="dynamic_color sticky">
+            <h1><a class="dynamic_color" href="http://github.com/adobe-fonts/source-serif-pro/releases/latest">
+            Source Serif 4
+            </a>
+            </h1>
+            <div class="links_right smcp hide_on_mobile">
+                <a href="https://github.com/adobe-fonts/source-serif-pro/tree/main">fork</a>
+                &ensp;|&ensp;
+                <a href="http://github.com/adobe-fonts/source-serif-pro/releases/latest">fonts</a>
+            </div>
         </header>
-        <div class='spacer'>
+        <div class="spacer">
             &nbsp;
         </div>
         <main spellcheck="false">
