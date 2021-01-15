@@ -31,9 +31,10 @@ a {
 h1 {
     /*page title*/
     font-family: "Source Serif VF", "Source Serif Display";
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 0;
-    padding-left: 1.5rem;
+    padding-left: 1.75rem;
+    padding-bottom: .5rem;
 }
 
 h2 {
@@ -43,7 +44,6 @@ h2 {
     font-variation-settings: "opsz" 8;
     font-feature-settings: "c2sc" 1, "smcp" 1;
     font-size: 1.5rem;
-    /*padding-left: 1.5rem;*/
     color: #AAA;
     margin: 0em;
     padding-bottom: 1rem;
@@ -90,9 +90,9 @@ p {
 }
 
 .opsz_text {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-variation-settings: "opsz" 10;
-    line-height: 1.75rem;
+    line-height: 1.875rem;
     /*padding-left: .5rem;*/
     padding-bottom: 0.75rem;
     padding-left: 0.5rem;
@@ -107,6 +107,25 @@ p {
     padding-left: 0.5rem;
 }
 
+.hide_on_mobile {
+
+}
+
+.spacer {
+    background-color: red;
+    top: 0;
+    left: 0;
+    height: 3.5rem;
+    width: 100%
+}
+.sticky {
+    background-color: #FFF;
+    box-shadow: 0px .5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%
+}
 .smcp {
     font-feature-settings: "smcp" 1;
 }
@@ -138,15 +157,17 @@ p {
     }
 }
 
-@media (max-width: 50rem) {
+@media screen and (max-width: 40rem) {
     html {
         font-size: 12px;
     }
-}
 
-@media (max-width: 50rem) {
-    html {
-        font-size: 10px;
+    main {
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    }
+
+    .hide_on_mobile {
+        display: none;
     }
 }
 
