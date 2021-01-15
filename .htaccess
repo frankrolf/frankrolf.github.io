@@ -1,2 +1,0 @@
-# Allow server-side includes for HTML files
-AddHandler server-parsed .html
