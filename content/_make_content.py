@@ -68,9 +68,9 @@ def text_to_html(animal, txt_files):
             languages.get(lang_tag, 'no language'))
 
         header, subhead, content, url = data.split('\n\n')
-        print(f'{lang_tag} content', len(content))
-        for l_index, line in enumerate(content.split('\n')):
-            print('\t', l_index, len(line))
+        # print(f'{lang_tag} content', len(content))
+        # for l_index, line in enumerate(content.split('\n')):
+        #     print('\t', l_index, len(line))
         format_dict.setdefault('header', []).append(header)
         format_dict.setdefault('subhead', []).append(subhead)
         format_dict.setdefault('content', []).append(content)
@@ -161,7 +161,10 @@ def text_to_html(animal, txt_files):
         htmlfile.write(html_data)
 
 
-if __name__ == '__main__':
+def refresh():
+    '''
+    refresh animal HTML files
+    '''
     animals = {}
     for file in os.listdir(os.path.abspath(os.path.dirname(__file__))):
         if os.path.splitext(file)[-1].lower() == '.txt':
@@ -173,3 +176,7 @@ if __name__ == '__main__':
     for animal, text_files in sorted(animals.items()):
         print('❤️ ' + animal.title())
         text_to_html(animal, text_files)
+
+
+if __name__ == '__main__':
+    refresh()
