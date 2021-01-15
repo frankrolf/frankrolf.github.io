@@ -138,7 +138,7 @@ p {
     }
 }
 
-@media (max-width: 30rem) {
+@media (max-width: 50rem) {
     html {
         font-size: 10px;
     }
