@@ -1,4 +1,5 @@
 '''
+Rebuild (randomize) complete index.html including all the included files
 '''
 
 import os

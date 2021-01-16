@@ -1,3 +1,7 @@
+'''
+Rebuild all html files to be included in the main site
+'''
+
 import os
 import random
 
