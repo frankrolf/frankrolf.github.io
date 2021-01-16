@@ -26,7 +26,7 @@ title: Source Serif 4
         <link rel="stylesheet" href="/source-serif-subhead.css">
         <link rel="stylesheet" href="/source-serif-display.css">
     </head>
-    <body>
+    <body class="dynamic_color">
         <header class="dynamic_color sticky">
             <h1><a class="dynamic_color" href="http://github.com/adobe-fonts/source-serif-pro/releases/latest">
             Source Serif 4
@@ -65,7 +65,7 @@ article_tag_template = (
     '            </article>\n'
 )
 
-_make_content.refresh()
+# _make_content.refresh()
 article_dir = os.path.join(os.path.dirname(__file__), '../_includes')
 article_htmls = [
     file for file in os.listdir(article_dir) if

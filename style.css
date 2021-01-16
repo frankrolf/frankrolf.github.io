@@ -179,7 +179,7 @@ p {
 }
 
 @media screen and (max-width: 40rem) {
-    html {
+    :root {
         font-size: 12px;
     }
     main {
