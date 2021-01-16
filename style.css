@@ -1,3 +1,7 @@
+:root {
+    --main_foreground_color: #000;
+    --main_background_color: #FFF;
+}
 body {
     font-family: "Source Serif VF", "Source Serif", sans;
     overflow-x: hidden;
@@ -26,10 +30,6 @@ article:hover {
 a {
     text-decoration: none;
     color: #666;
-}
-
-[contenteditable] {
-    outline: 0px solid transparent;
 }
 
 h1 {
@@ -89,9 +89,18 @@ p {
 
 }
 
+[contenteditable] {
+    outline: 0px solid transparent;
+}
+
 .columns {
     columns: 18rem;
     column-gap: 0.75rem;
+}
+
+.dynamic_color {
+    color: var(--main_foreground_color);
+    background-color: var(--main_background_color);
 }
 
 .opsz_text {
@@ -129,13 +138,7 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    /*box-shadow: 0px .5px;*/
-    border-bottom: 0.5px solid red;
-}
-
-.dynamic_color {
-    background-color: #FFF;
-    color: #000;
+    border-bottom: 0.5px solid var(--main_foreground_color);
 }
 
 .smcp {
@@ -160,9 +163,9 @@ p {
 .Black {font-weight: 900;}
 
 @media screen and (prefers-color-scheme: dark) {
-    .dynamic_color {
-        background-color: #222;
-        color: #FFF;
+    :root {
+        --main_foreground_color: #FFF;
+        --main_background_color: #222;
     }
     a {
         color: #CCC;
