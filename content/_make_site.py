@@ -26,7 +26,7 @@ title: Source Serif 4
         <link rel="stylesheet" href="/source-serif-subhead.css">
         <link rel="stylesheet" href="/source-serif-display.css">
     </head>
-    <body class="dynamic_color">
+    <body>
         <header class="dynamic_color sticky">
             <h1><a class="dynamic_color" href="http://github.com/adobe-fonts/source-serif-pro/releases/latest">
             Source Serif 4
