@@ -34,7 +34,7 @@ iso_languages = {
 }
 
 article_template = '''
-<h3 contenteditable lang="{lang_tag_a}"><i>{header}</i></h3>
+<h3 contenteditable lang="{lang_tag_a}">{header}</h3>
 <h4 contenteditable lang="{lang_tag_a}">{subhead}</h4>
 
 <p contenteditable class="opsz_text">
