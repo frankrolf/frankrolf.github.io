@@ -29,16 +29,17 @@ a {
 
 h1 {
     /*page title*/
+    margin: 0;
     font-family: "Source Serif VF", "Source Serif Display";
     font-weight: 400;
     font-size: 1.25rem;
-    margin: 0;
     padding-left: .75rem;
     padding-bottom: .25rem;
 }
 
 h2 {
     /*weight names in small caps*/
+    margin: 0;
     font-family: "Source Serif VF", "Source Serif SmText";
     font-weight: 400;
     font-variation-settings: "opsz" 8;
@@ -47,8 +48,7 @@ h2 {
     color: #BBB;
     padding-bottom: 0.25rem;
     letter-spacing: 0.04em;
-    border-bottom: 1px solid;
-    margin: 0;
+    border-bottom: 0.5px solid;
 }
 
 h3 {
@@ -153,10 +153,54 @@ p {
         font-size: 16px;
     }
 
+    .spacer {
+        height: 3.5rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        padding-left: 1.75rem;
+        padding-bottom: .5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        padding-bottom: 1rem;
+        height: 1.5rem;
+        letter-spacing: 0.04em;
+    }
+
+    h3 {
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+
+    h4 {
+        padding-left: 0.25rem;
+    }
+
+    p {
+        padding-left: 0.25rem;
+    }
+
+    .opsz_text {
+        font-size: 1.5rem;
+        line-height: 1.875rem;
+        padding-bottom: 0.75rem;
+        padding-left: 0.5rem;
+    }
+
+    .opsz_caption {
+        font-size: .875rem;
+        line-height: 1.375rem;
+        padding-bottom: 1rem;
+        padding-left: 0.5rem;
+    }
+
     article {
-        padding: 1rem;
-        /*color: var(--main_foreground_color);*/
-        color: #69ffb6;
+        padding: 0.25rem 1rem 1rem 1rem;
+        color: var(--main_foreground_color);
+        /*color: #69ffb6;*/
     }
 
     article:hover {
@@ -183,7 +227,7 @@ p {
     }
 
     .columns {
-        columns: 10rem;
+        columns: 20rem;
         column-gap: 0.75rem;
     }
 
@@ -204,7 +248,7 @@ p {
         color: #666;
     }
 
-/*    article:hover {
+    article:hover {
         background-color: #333;
     }
-*/}
+}
