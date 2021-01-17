@@ -32,7 +32,7 @@ title: Source Serif 4
             Source Serif 4
             </a>
             </h1>
-            <div class="links_right smcp hide_on_mobile">
+            <div class="header_links smcp">
                 <a href="https://github.com/adobe-fonts/source-serif-pro/tree/main">fork</a>
                 &ensp;|&ensp;
                 <a href="http://github.com/adobe-fonts/source-serif-pro/releases/latest">fonts</a>
