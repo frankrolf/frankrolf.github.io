@@ -3,6 +3,7 @@ Rebuild (randomize) complete index.html including all the included files
 '''
 
 import os
+import argparse
 import random
 import _make_content
 
@@ -66,17 +67,60 @@ article_tag_template = (
     '            </article>\n'
 )
 
-# _make_content.refresh()
-article_dir = os.path.join(os.path.dirname(__file__), '../_includes')
-article_htmls = [
-    file for file in os.listdir(article_dir) if
-    os.path.splitext(file)[-1].lower() == '.html']
-random.shuffle(article_htmls)
+
+def get_args():
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
+
+    parser.add_argument(
+        '-r', '--refresh',
+        help='refresh complete site including html includes',
+        action='store_true',
+    )
+
+    parser.add_argument(
+        '-s', '--shuffle',
+        help='shuffle animals',
+        action='store_true',
+    )
+
+    return parser.parse_args()
+
+
+args = get_args()
+if args.refresh:
+    _make_content.refresh()
+
+if args.shuffle:
+    article_dir = os.path.join(os.path.dirname(__file__), '../_includes')
+    animal_htmls = [
+        file for file in os.listdir(article_dir) if
+        os.path.splitext(file)[-1].lower() == '.html']
+    random.shuffle(animal_htmls)
+
+else:
+    animal_htmls = [
+        'capybara.html',
+        'beaver.html',
+        'anteater.html',
+        'wombat.html',
+        'sand_cat.html',
+        'hedgehog.html',
+        'iberian_lynx.html',
+        'hamster.html',
+        'raccoon.html',
+        'flying_squirrel.html',
+        'opossum.html',
+        'ocelot.html',
+    ]
+
 
 html_output = html_prologue
 
 for w_index, weight in enumerate(weights * 2):
-    article_html = article_htmls[w_index]
+    article_html = animal_htmls[w_index]
     html_output += article_tag_template.format(weight, weight, article_html)
 html_output += html_epilogue
 
