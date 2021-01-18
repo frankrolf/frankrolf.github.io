@@ -29,7 +29,7 @@ title: Source Serif 4
     </head>
     <body class="dynamic_color">
         <header class="dynamic_color sticky">
-            <h1><a class="dynamic_color" href="http://github.com/adobe-fonts/source-serif-pro/releases/latest">
+            <h1><a class="dynamic_text_color" href="http://github.com/adobe-fonts/source-serif-pro/releases/latest">
             Source Serif 4
             </a>
             </h1>

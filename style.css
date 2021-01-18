@@ -97,6 +97,11 @@ p {
     background-color: var(--main_background_color);
 }
 
+.dynamic_text_color {
+    /* for creating an unstyled link */
+    color: var(--main_foreground_color);
+}
+
 .opsz_text {
     font-size: 1.25rem;
     font-variation-settings: "opsz" 10;
