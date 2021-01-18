@@ -7,16 +7,18 @@ body {
     overflow-x: hidden;
     font-size: 100%;
     font-feature-settings: "kern" 1, "liga" 1;
+    margin: 0;
 }
 
 main {
+    padding: 0.5rem;
     display: grid;
 }
 
 article {
     autocorrect: "off";
     margin: 0 auto;
-    padding: 0.125rem .125rem 1rem .125rem;
+    padding: 0.125rem 0.125rem 1rem 0.125rem;
     hyphens: auto;
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
@@ -32,9 +34,9 @@ h1 {
     margin: 0;
     font-family: "Source Serif VF", "Source Serif Display";
     font-weight: 400;
-    font-size: 1.25rem;
-    padding-left: .75rem;
-    padding-bottom: .25rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    padding: 0.25rem 0 0.25rem 0.75rem;
 }
 
 h2 {
@@ -105,7 +107,7 @@ p {
 
 .opsz_caption {
     font-family: "Source Serif VF", "Source Serif Caption";
-    font-size: .875rem;
+    font-size: 0.875rem;
     font-variation-settings: "opsz" 4;
     line-height: 1.125rem;
     padding-left: 0.125rem;
@@ -124,6 +126,7 @@ p {
 }
 
 .sticky {
+    /*background-color: var(--main_background_color);;*/
     position: fixed;
     top: 0;
     left: 0;
@@ -139,26 +142,34 @@ p {
     display: none;
 }
 
-.ExtraLight {font-weight: 200;}
-.Light {font-weight: 300;}
-.Regular {font-weight: 500;}
-.Semibold {font-weight: 600;}
-.Bold {font-weight: 700;}
-.Black {font-weight: 900;}
+.ExtraLight {
+    font-weight: 200;
+}
+.Light {
+    font-weight: 300;
+}
+.Regular {
+    font-weight: 500;
+}
+.Semibold {
+    font-weight: 600;
+}
+.Bold {
+    font-weight: 700;
+}
+.Black {
+    font-weight: 900;
+}
 
 @media screen and (min-width: 480px) {
-    :root {
-        font-size: 16px;
-    }
-
     .spacer {
-        height: 3.5rem;
+        height: 3rem;
     }
 
     h1 {
         font-size: 2.5rem;
-        padding-left: 1.75rem;
-        padding-bottom: .5rem;
+        line-height: 2.5rem;
+        padding: 0.5rem 0 0.5rem 1.75rem;
     }
 
     h2 {
@@ -177,10 +188,6 @@ p {
         padding-left: 0.25rem;
     }
 
-/*    p {
-        padding-left: 0.5rem;
-    }
-*/
     .opsz_text {
         font-size: 1.5rem;
         line-height: 1.875rem;
@@ -189,7 +196,7 @@ p {
     }
 
     .opsz_caption {
-        font-size: .875rem;
+        font-size: 0.875rem;
         line-height: 1.375rem;
         padding-bottom: 1rem;
         padding-left: 0.25rem;
@@ -198,7 +205,6 @@ p {
     article {
         padding: 0.25rem 1rem 1rem 1rem;
         color: var(--main_foreground_color);
-        /*color: #69ffb6;*/
     }
 
     article:hover {
@@ -218,18 +224,16 @@ p {
         height: 3rem;
         position: absolute;
         right: 1.5rem;
-        top: .25rem;
+        top: 0.25rem;
         text-align: right;
         align-items: center;
         display: flex;
     }
 
     .columns {
-        columns: 20rem;
+        columns: 17rem;
         column-gap: 0.75rem;
     }
-
-
 }
 
 @media screen and (prefers-color-scheme: dark) {
