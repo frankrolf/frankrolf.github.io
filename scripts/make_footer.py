@@ -64,7 +64,7 @@ def refresh():
         html_output.append(f'<p class="para_padding" lang="en">{paragraph}</p>')
 
     html_output.extend([
-        '<p>&nbsp</p>',
+        '<p>&nbsp;</p>',
         '<p class="smcp">credits</p>',
         '<p><ul>'])
 
@@ -81,7 +81,7 @@ def refresh():
         html_output.append(person_template.format(**group_dict))
 
     html_output.append('</ul>')
-    html_output.append('<p>&nbsp</p>')
+    html_output.append('<p>&nbsp;</p>')
     html_output.append('© Adobe 2014–2021</div>\n')
 
     with open(footer_html, 'w') as footer:
