@@ -8,8 +8,8 @@ With option -s, the content is re-shuffled on the site
 import os
 import argparse
 import random
-import _make_content
-import _make_footer
+import make_content
+import make_footer
 
 html_prologue = '''\
 ---
@@ -97,7 +97,8 @@ def get_args():
 
 args = get_args()
 if args.refresh:
-    _make_content.refresh()
+    make_content.refresh()
+    make_footer.refresh()
 
 if args.shuffle:
     article_dir = os.path.join(os.path.dirname(__file__), '../_includes')

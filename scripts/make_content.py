@@ -173,13 +173,15 @@ def text_files_to_html(animal, txt_files):
 
 def refresh():
     '''
-    find text files in the current directory, and use them to refresh
+    find text files in the content directory, and use them to refresh
     the HTML files in the ../_includes directory
     '''
     animals = {}
-    for file in os.listdir(os.path.abspath(os.path.dirname(__file__))):
+    content_dir = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), '../content'))
+    for file in os.listdir(content_dir):
         if os.path.splitext(file)[-1].lower() == '.txt':
-            file_path = os.path.abspath(file)
+            file_path = os.path.join(content_dir, file)
             animal, _ = os.path.splitext(file)[0].split('-')
             animals.setdefault(animal, []).append(file_path)
 

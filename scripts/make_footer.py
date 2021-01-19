@@ -41,7 +41,7 @@ person_template = '''\
 <li><a href="{url}">{name}</a><br><p class="indent">{role}</p></li>'''
 
 
-def make_footer():
+def refresh():
     txt_file = os.path.join(
         os.path.dirname(__file__), '../CONTRIBUTORS.txt')
     footer_html = os.path.join(
@@ -82,11 +82,11 @@ def make_footer():
 
     html_output.append('</ul>')
     html_output.append('<p>&nbsp</p>')
-    html_output.append('© Adobe 2014–2021</div>')
+    html_output.append('© Adobe 2014–2021</div>\n')
 
     with open(footer_html, 'w') as footer:
         footer.write('\n'.join(html_output))
 
 
 if __name__ == '__main__':
-    make_footer()
+    refresh()
