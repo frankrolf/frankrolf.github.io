@@ -10,7 +10,7 @@ iso_languages = {
     'az': 'Azerbaijani',
     'be': 'Belarusian',
     'bg': 'Bulgarian',
-    'cz': 'Czech',
+    'cs': 'Czech',
     'de': 'German',
     'el': 'Greek',
     'en': 'English',
