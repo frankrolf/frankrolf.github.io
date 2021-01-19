@@ -91,8 +91,6 @@ h5 {
     font-size: 1rem;
     font-variation-settings: "opsz" 10;
     line-height: 1rem;
-    /*padding-bottom: 0.5rem;*/
-    /*padding-left: 0.125rem;*/
     margin: 0;
 }
 
@@ -243,9 +241,8 @@ li {
     }
 
     footer {
-        padding: 1.5rem;
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
         display: grid;
-        /*grid-template-columns: 35rem;*/
         grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
 
     }
