@@ -1,11 +1,15 @@
 '''
-Rebuild (randomize) complete index.html including all the included files
+Rebuild complete index.html.
+
+With option -r, external html files are re-built
+With option -s, the content is re-shuffled on the site
 '''
 
 import os
 import argparse
 import random
 import _make_content
+import _make_footer
 
 html_prologue = '''\
 ---
@@ -44,10 +48,12 @@ title: Source Serif 4
         </div>
         <main spellcheck="false">
 '''
-    # <div class="spacer" style="background-color:red;height: 5rem;">test</div>
 
 html_epilogue = '''\
         </main>
+        <footer>
+            {% include footer.html %}
+        </footer>
     </body>
 </html>'''
 
@@ -76,13 +82,13 @@ def get_args():
 
     parser.add_argument(
         '-r', '--refresh',
-        help='refresh complete site including html includes',
+        help='rebuild html includes',
         action='store_true',
     )
 
     parser.add_argument(
         '-s', '--shuffle',
-        help='shuffle animals',
+        help='re-shuffle content on site',
         action='store_true',
     )
 
