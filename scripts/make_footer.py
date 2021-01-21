@@ -1,9 +1,14 @@
 '''
-Rebuild footer
+Rebuild footer.
+The footer text consists of the statement below, as well as a html-formatted
+variant of CONTRIBUTORS.md.
+
+
 '''
 
 import os
 import re
+import time
 
 statement = '''
 Source Serif is an open-source typeface for setting text in many sizes,
@@ -29,10 +34,10 @@ Cyrillic</a> and
 Greek</a> writing systems.
 
 Source Serif was designed by Frank Grießhammer, with contributions by
-Irene Vlachou, Emilios Theofanous, Reymund Schroeder, and Thomas Thiemich.
+Reymund Schroeder, Emilios Theofanous, Thomas Thiemich, and Irene Vlachou.
 
-Significant extensions of this project were made possible through
-support from
+Significant extensions of this project (Greek italics, optical sizes) were made
+possible through support from
 <a href="https://design.google/library/variable-fonts-are-here-to-stay/">
 Google Fonts</a>.
 '''
@@ -43,46 +48,45 @@ person_template = '''\
 
 def refresh():
     txt_file = os.path.join(
-        os.path.dirname(__file__), '../CONTRIBUTORS.txt')
+        os.path.dirname(__file__), '../../CONTRIBUTORS.md')
     footer_html = os.path.join(
         os.path.dirname(__file__), '../_includes/footer.html')
     with open(txt_file, 'r') as f:
-        txt_data = f.read().splitlines()
+        txt_data = f.read()
 
-    rx_person = re.compile(
-        # named subgroups:
-        # https://docs.python.org/3/library/re.html#re.Match.groupdict
-        r'\t(?P<name>.+?) \((?P<url>.+?)\) – (?P<role>.+?) \((?P<time>.+?)\)')
+    # build HTML output starting with the statement from above
+    html_output = ['<div class="opsz_smtext">']
 
     statement_paragraphs = statement.split('\n\n')
-    html_output = [
-
-        '<div class="opsz_smtext">',
-    ]
-
     for paragraph in statement_paragraphs:
-        html_output.append(f'<p class="para_padding" lang="en">{paragraph}</p>')
+        html_output.append(
+            f'<p class="para_padding" lang="en">{paragraph}</p>')
+
+    # parse CONTRIBUTORS.md for persons
+    rx_person = re.compile(
+        # rx named subgroups:
+        # https://docs.python.org/3/library/re.html#re.Match.groupdict
+        r'\[(?P<name>.+?)\]\((?P<url>.+?)\)\s+?\n\t(?P<role>.+?) \((?P<time>.+?)\)',
+        re.MULTILINE)
+
+    person_dicts = [m.groupdict() for m in re.finditer(rx_person, txt_data)]
+    contributors = {}
+    for p_dict in person_dicts:
+        # organize contributors by last name
+        last_name = p_dict['name'].split()[-1]
+        contributors[last_name] = p_dict
 
     html_output.extend([
-        '<p>&nbsp;</p>',
-        '<p class="smcp">credits</p>',
-        '<p><ul>'])
+        '<h5>credits</h5>',
+        '<ul>'])
 
-    role_dict = {}
-    for line in txt_data:
-
-        if line.startswith('\t'):
-            rx = re.match(rx_person, line)
-            if rx:
-                last_name = rx.group(1).split()[-1]
-                role_dict[last_name] = rx.groupdict()
-
-    for last_name, group_dict in sorted(role_dict.items()):
+    for last_name, group_dict in sorted(contributors.items()):
         html_output.append(person_template.format(**group_dict))
 
     html_output.append('</ul>')
-    html_output.append('<p>&nbsp;</p>')
-    html_output.append('© Adobe 2014–2021</div>\n')
+
+    year = time.gmtime().tm_year
+    html_output.append(f'<h5>© Adobe 2014 – {year}</h5></div>\n')
 
     with open(footer_html, 'w') as footer:
         footer.write('\n'.join(html_output))

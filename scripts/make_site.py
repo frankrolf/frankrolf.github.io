@@ -24,23 +24,19 @@ title: Source Serif 4
         <meta name="format-detection" content="telephone=no">
         <title>Source Serif 4</title>
         <link rel="stylesheet" href="/style.css">
-        <link rel="stylesheet" href="/source-serif-var.css">
-        <link rel="stylesheet" href="/source-serif-caption.css">
-        <link rel="stylesheet" href="/source-serif-smtext.css">
-        <link rel="stylesheet" href="/source-serif-text.css">
-        <link rel="stylesheet" href="/source-serif-subhead.css">
-        <link rel="stylesheet" href="/source-serif-display.css">
+        <link rel="stylesheet" href="/source-serif-variable.css">
+        <link rel="stylesheet" href="/source-serif-static.css">
     </head>
     <body class="dynamic_color">
         <header class="dynamic_color sticky">
-            <h1><a class="dynamic_text_color" href="http://github.com/adobe-fonts/source-serif-pro/releases/latest">
+            <h1><a class="dynamic_text_color" href="http://github.com/adobe-fonts/source-serif/releases/latest">
             Source Serif 4
             </a>
             </h1>
             <div class="header_links smcp">
-                <a href="https://github.com/adobe-fonts/source-serif-pro/tree/main">fork</a>
+                <a href="https://github.com/adobe-fonts/source-serif/tree/main">fork</a>
                 &ensp;|&ensp;
-                <a href="http://github.com/adobe-fonts/source-serif-pro/releases/latest">fonts</a>
+                <a href="http://github.com/adobe-fonts/source-serif/releases/latest">fonts</a>
             </div>
         </header>
         <div class="spacer">
@@ -98,7 +94,8 @@ def get_args():
 args = get_args()
 if args.refresh:
     make_content.refresh()
-    make_footer.refresh()
+
+make_footer.refresh()
 
 if args.shuffle:
     article_dir = os.path.join(os.path.dirname(__file__), '../_includes')
